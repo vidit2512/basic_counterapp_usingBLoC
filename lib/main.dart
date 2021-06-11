@@ -15,7 +15,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
- 
         primarySwatch: Colors.blue,
       ),
       home: BlocProvider<CounterBloc>(
@@ -34,10 +33,9 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CounterBloc counterBloc = BlocProvider.of<CounterBloc>(context);
- 
+
     return Scaffold(
       appBar: AppBar(
-
         title: Text(title),
       ),
       body: Center(
@@ -49,10 +47,34 @@ class MyHomePage extends StatelessWidget {
             ),
             BlocBuilder<CounterBloc, CounterState>(
               builder: (context, state) {
+                //  if (state is IncrementedState) {
+
+               // final snackBar;
+                // if ((state as CountingState).val)
+                //   snackBar = SnackBar(
+                //       content: Text(' Hey! you have pressed increment button'));
+                //       else   snackBar = SnackBar(
+                //       content: Text(' Hey! you have pressed decrement button'));
+                //  Scaffold.of(context).showSnackBar(snackBar);
+              //  print((state as CountingState).val);
                 return Text(
-                  '${state.counter.toString()}',
+                  // ignore: unnecessary_cast
+
+                  (state as CountingState).counter.toString(),
                   style: Theme.of(context).textTheme.headline4,
                 );
+                //  } else {// if (state is DecrementedState) {
+
+                //  final snackBar = SnackBar(content: Text(' Hey! you have pressed decrement button'));
+                //     Scaffold.of(context).showSnackBar(snackBar);
+                // return Text(
+                //   // ignore: unnecessary_cast
+                //   '${(state as DecrementedState).counter.toString()}',
+                //   style: Theme.of(context).textTheme.headline4,
+                // );
+                //    }
+                // else
+                //   return Center();//Dummyy....
               },
             ),
             SizedBox(
