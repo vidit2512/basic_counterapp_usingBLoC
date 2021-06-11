@@ -30,6 +30,7 @@ class MyHomePage extends StatelessWidget {
 
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     CounterBloc counterBloc = BlocProvider.of<CounterBloc>(context);
@@ -45,38 +46,116 @@ class MyHomePage extends StatelessWidget {
             Text(
               'You have pushed the button this many times:',
             ),
-            BlocBuilder<CounterBloc, CounterState>(
-              builder: (context, state) {
-                //  if (state is IncrementedState) {
+            BlocListener(
+              bloc: counterBloc,
+              listener: (context, state) {
+                if ((state as CountingState).val) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('heyy,YOU have pressed Increment Button'),
+                    ),
+                  );
+                } 
+                else //false
+                {
 
-               // final snackBar;
-                // if ((state as CountingState).val)
-                //   snackBar = SnackBar(
-                //       content: Text(' Hey! you have pressed increment button'));
-                //       else   snackBar = SnackBar(
-                //       content: Text(' Hey! you have pressed decrement button'));
-                //  Scaffold.of(context).showSnackBar(snackBar);
-              //  print((state as CountingState).val);
-                return Text(
-                  // ignore: unnecessary_cast
+                   ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('heyy,YOU have pressed Decrement Button'),
+                    ),
+                  );
 
-                  (state as CountingState).counter.toString(),
-                  style: Theme.of(context).textTheme.headline4,
-                );
-                //  } else {// if (state is DecrementedState) {
-
-                //  final snackBar = SnackBar(content: Text(' Hey! you have pressed decrement button'));
-                //     Scaffold.of(context).showSnackBar(snackBar);
-                // return Text(
-                //   // ignore: unnecessary_cast
-                //   '${(state as DecrementedState).counter.toString()}',
-                //   style: Theme.of(context).textTheme.headline4,
-                // );
-                //    }
-                // else
-                //   return Center();//Dummyy....
+                }
               },
+              child:     BlocBuilder<CounterBloc, CounterState>(
+              builder: (bb, state) {
+                 //  if (state is IncrementedState) {
+
+        //        // final snackBar;
+        //       //  if ((state as CountingState).val) //increment
+        //         //{
+        //         //  print((state as CountingState).val);
+        //        //   ScaffoldMessenger.of(context).showSnackBar(
+        //             // SnackBar(
+        //             //   content: Text('hiii'),
+        //             // ),
+        //        //   );
+        //     //snackBar = SnackBar(
+        //    //     content: Text(' Hey! you have pressed increment button'));
+        //     //       else   snackBar = SnackBar(
+        //     //       content: Text(' Hey! you have pressed decrement button'));
+        //  //   Scaffold.of(_).showSnackBar(snackBar);
+        //  //     }
+
+        //      print((state as CountingState).val);
+            return 
+            Text(
+              // ignore: unnecessary_cast
+
+              ((state as CountingState).counter.toString() +
+                  state.val.toString()),
+              style: Theme.of(context).textTheme.headline4,
+            );
+
+        //      } 
+            //  else { // if (state is DecrementedState) {
+
+            
+           
+                }
+           
+          //  },
             ),
+           //##########################################
+              //  Text(
+              //   // ignore: unnecessary_cast
+              //   'gffff',
+
+              //   //  ((state as CountingState).counter.toString() +
+              //   //      state.val.toString()),
+              //   // style: Theme.of(context).textTheme.headline4,
+              // ),
+            ),
+            // //////////////////////////////////////
+        //     BlocBuilder<CounterBloc, CounterState>(
+        //      builder: (bb, state) {
+        //         //  if (state is IncrementedState) {
+
+        //        // final snackBar;
+        //       //  if ((state as CountingState).val) //increment
+        //         //{
+        //         //  print((state as CountingState).val);
+        //        //   ScaffoldMessenger.of(context).showSnackBar(
+        //             // SnackBar(
+        //             //   content: Text('hiii'),
+        //             // ),
+        //        //   );
+        //     //snackBar = SnackBar(
+        //    //     content: Text(' Hey! you have pressed increment button'));
+        //     //       else   snackBar = SnackBar(
+        //     //       content: Text(' Hey! you have pressed decrement button'));
+        //  //   Scaffold.of(_).showSnackBar(snackBar);
+        //  //     }
+
+        //      print((state as CountingState).val);
+        //     return 
+        //     Text(
+        //       // ignore: unnecessary_cast
+
+        //       ((state as CountingState).counter.toString() +
+        //           state.val.toString()),
+        //       style: Theme.of(context).textTheme.headline4,
+        //     );
+
+        //      } 
+            //  else { // if (state is DecrementedState) {
+
+            
+           
+            //    }
+           
+          //  },
+           // ),
             SizedBox(
               height: 50,
             ),
