@@ -53,6 +53,7 @@ class MyHomePage extends StatelessWidget {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text('heyy,YOU have pressed Increment Button'),
+                      backgroundColor: Colors.amber,
                     ),
                   );
                 } 
@@ -62,6 +63,7 @@ class MyHomePage extends StatelessWidget {
                    ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text('heyy,YOU have pressed Decrement Button'),
+                      backgroundColor: Colors.deepOrange,
                     ),
                   );
 
@@ -69,93 +71,23 @@ class MyHomePage extends StatelessWidget {
               },
               child:     BlocBuilder<CounterBloc, CounterState>(
               builder: (bb, state) {
-                 //  if (state is IncrementedState) {
-
-        //        // final snackBar;
-        //       //  if ((state as CountingState).val) //increment
-        //         //{
-        //         //  print((state as CountingState).val);
-        //        //   ScaffoldMessenger.of(context).showSnackBar(
-        //             // SnackBar(
-        //             //   content: Text('hiii'),
-        //             // ),
-        //        //   );
-        //     //snackBar = SnackBar(
-        //    //     content: Text(' Hey! you have pressed increment button'));
-        //     //       else   snackBar = SnackBar(
-        //     //       content: Text(' Hey! you have pressed decrement button'));
-        //  //   Scaffold.of(_).showSnackBar(snackBar);
-        //  //     }
-
-        //      print((state as CountingState).val);
+     
             return 
             Text(
-              // ignore: unnecessary_cast
-
+           
               ((state as CountingState).counter.toString() +
                   state.val.toString()),
               style: Theme.of(context).textTheme.headline4,
             );
 
-        //      } 
-            //  else { // if (state is DecrementedState) {
-
-            
-           
                 }
-           
-          //  },
+       
             ),
            //##########################################
-              //  Text(
-              //   // ignore: unnecessary_cast
-              //   'gffff',
-
-              //   //  ((state as CountingState).counter.toString() +
-              //   //      state.val.toString()),
-              //   // style: Theme.of(context).textTheme.headline4,
-              // ),
+            
             ),
             // //////////////////////////////////////
-        //     BlocBuilder<CounterBloc, CounterState>(
-        //      builder: (bb, state) {
-        //         //  if (state is IncrementedState) {
-
-        //        // final snackBar;
-        //       //  if ((state as CountingState).val) //increment
-        //         //{
-        //         //  print((state as CountingState).val);
-        //        //   ScaffoldMessenger.of(context).showSnackBar(
-        //             // SnackBar(
-        //             //   content: Text('hiii'),
-        //             // ),
-        //        //   );
-        //     //snackBar = SnackBar(
-        //    //     content: Text(' Hey! you have pressed increment button'));
-        //     //       else   snackBar = SnackBar(
-        //     //       content: Text(' Hey! you have pressed decrement button'));
-        //  //   Scaffold.of(_).showSnackBar(snackBar);
-        //  //     }
-
-        //      print((state as CountingState).val);
-        //     return 
-        //     Text(
-        //       // ignore: unnecessary_cast
-
-        //       ((state as CountingState).counter.toString() +
-        //           state.val.toString()),
-        //       style: Theme.of(context).textTheme.headline4,
-        //     );
-
-        //      } 
-            //  else { // if (state is DecrementedState) {
-
-            
-           
-            //    }
-           
-          //  },
-           // ),
+      
             SizedBox(
               height: 50,
             ),
