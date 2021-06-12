@@ -75,8 +75,11 @@ class MyHomePage extends StatelessWidget {
             return 
             Text(
            
-              ((state as CountingState).counter.toString() +
-                  state.val.toString()),
+              (
+                (state as CountingState).counter.toString()
+               //+
+                  //state.val.toString()
+                  ),
               style: Theme.of(context).textTheme.headline4,
             );
 
